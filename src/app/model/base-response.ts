@@ -7,4 +7,6 @@ export class BaseResponse {
   data?: object;
 
   totalCount?: number;
+
+  name?: any;
 }

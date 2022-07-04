@@ -1,0 +1,279 @@
+<div class="container">
+  <mat-stepper [linear]="false" #stepper>
+    <mat-step>
+      <div id="firstFormGroup">
+        <ng-template matStepLabel>Bước 1</ng-template>
+        <mat-card class="mb-4">
+          <mat-card-title>
+            Thông tin cơ bản
+          </mat-card-title>
+          <mat-card-content>
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Tên học sinh</mat-label>
+                  <input matInput placeholder="Trần Văn A" id="student-name" name="name" [(ngModel)]="student.name">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Pháp danh</mat-label>
+                  <input matInput placeholder="Huệ Anh Tính" id="dharma-name" name="dharmaName"
+                         [(ngModel)]="student.dharmaName">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Năm Sinh</mat-label>
+                  <input matInput placeholder="2010" id="birth-year" name="yearBirth" [(ngModel)]="student.yearBirth">
+                </mat-form-field>
+              </div>
+              <div class="col-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Giới tính</mat-label>
+                  <input matInput placeholder="Nam" id="gender" name="gender" [(ngModel)]="student.gender">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>SĐT người thân</mat-label>
+                  <input matInput placeholder="VD: 0987666666" id="relative-phone" name="relativePhone"
+                         [(ngModel)]="student.relativePhone">
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-title class="mb-5">Đăng ký Quy y</mat-card-title>
+          <mat-card-content>
+            <p>
+              Khi cảm nhận lời Phật dạy từ những điều nhỏ bé nhưng chứa đựng trong đó đạo lý cao cả giúp nhân cách,
+              đạo đức con người được nâng cao, từ đó, chúng ta phát tâm Quy y Tam Bảo để chính thức được trở thành
+              người đệ tử của Đức Phật.
+            </p>
+            <p>
+              Quy y Tam Bảo là Quy y Phật, Quy y Pháp, Quy y Tăng. Quy y có nghĩa là đem cả cuộc đời mình dâng lên
+              Tam Bảo vì từ giây phút Quy y, chúng ta tôn thờ Đức Phật với trọn lòng tôn kính thiết tha. Chúng ta
+              sẽ sống vì Phật pháp, vì đạo lý, vì lợi ích chúng sinh. Và cũng từ giây phút được Quy y, chúng ta là
+              đệ tử của Đức Phật, học theo Chánh Pháp, nương với Chư Tăng – những vị xuất gia tu hành chân chính.
+            </p>
+            <p class="text-end">
+              <a href="https://thientonphatquang.com/quy-y-khong-phi/" class="text-decoration-none">
+                <i class="bi bi-globe2"></i>
+                https://thientonphatquang.com
+              </a>
+          </mat-card-content>
+          <mat-card-actions class="p-4 text-end">
+            <mat-radio-group class="register-for-refuge" [(ngModel)]="student.registerForRefuge">
+              <mat-radio-button value="Y">Có</mat-radio-button>
+              <mat-radio-button value="N">Không</mat-radio-button>
+            </mat-radio-group>
+          </mat-card-actions>
+        </mat-card>
+        <div class="float-end position-right-bottom-end mt-3">
+          <button class="btn-margin8880" mat-raised-button color="primary" matStepperNext>Tiếp tục</button>
+          <a class="btn-margin8880" mat-stroked-button mat-button routerLink="/student-list">Thoát</a>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step label="Bước 2">
+      <div class="">
+        <mat-card>
+          <mat-card-title>Thông tin chi tiết</mat-card-title>
+          <mat-card-content>
+            <div class="row mb-4">
+              <h3 class="mb-0">Chiều cao, cân nặng</h3>
+              <div class="col-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Cân nặng(kg)</mat-label>
+                  <input matInput placeholder="VD: 30" id="width" name="width" [(ngModel)]="student.weight">
+                </mat-form-field>
+              </div>
+              <div class="col-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Chiều cao(cm)</mat-label>
+                  <input matInput placeholder="VD: 130" id="height" name="height" [(ngModel)]="student.height">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <h3 class="mb-0">Học lực, hạnh kiểm</h3>
+              <div class="col-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Học lực</mat-label>
+                  <mat-select [(ngModel)]="student.academicAbility">
+                    <mat-option *ngFor="let academicAbility of academicAbilities" [value]="academicAbility.code">
+                      {{academicAbility.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Hạnh kiểm</mat-label>
+                  <mat-select [(ngModel)]="student.conduct">
+                    <mat-option *ngFor="let conduct of conducts" [value]="conduct.code">
+                      {{conduct.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <h3 class="mb-0">Tình trạng sức khỏe</h3>
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Đánh giá tình trạng sức khỏe</mat-label>
+                  <mat-select [(ngModel)]="student.healthCondition">
+                    <mat-option *ngFor="let healthCondition of healthConditions" [value]="healthCondition.code">
+                      {{healthCondition.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <h3 class="mb-0">Ghi chú tình trạng sức khỏe(nếu có)</h3>
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Ghi chú rõ ràng chú ý về sức khỏe của học sinh</mat-label>
+                  <textarea matInput rows="5" [(ngModel)]="student.noteHealthCondition"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="float-end position-right-bottom-end mt-3">
+        <button class="btn-margin8880" mat-raised-button mat-button matStepperPrevious>Trở lại</button>
+        <button class="btn-margin8880" mat-raised-button color="primary" matStepperNext>Tiếp tục</button>
+        <a class="btn-margin8880" mat-stroked-button mat-button routerLink="/student-list">Thoát</a>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Bước 3</ng-template>
+      <mat-card class="mb-4">
+        <mat-card-title>Thông tin người thân</mat-card-title>
+        <mat-card-content>
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+              <mat-form-field class="control-full-width" appearance="fill">
+                <mat-label>Tên người thân</mat-label>
+                <input matInput placeholder="VD: Trần Văn B" [(ngModel)]="student.relativeName">
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+              <mat-form-field class="control-full-width" appearance="fill">
+                <mat-label>Số điện thoại</mat-label>
+                <input matInput placeholder="VD: 0972888888" [(ngModel)]="student.relativePhone">
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+              <mat-form-field class="control-full-width" appearance="fill">
+                <mat-label>Quan hệ với học sinh</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let relationShip of relationShips" [value]="relationShip.code"
+                              [(ngModel)]="student.relationShip">
+                    {{relationShip.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="mb-4">
+        <mat-card-title>Địa chỉ nơi ở</mat-card-title>
+        <mat-card-content>
+          <app-address-input></app-address-input>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="mb-4">
+        <mat-card-title>Đăng ký áo</mat-card-title>
+        <mat-card-content>
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+              <mat-form-field class="control-full-width" appearance="fill">
+                <mat-label>Kích cỡ áo</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let shirtSize of shirtSizes" [value]="shirtSize.code">
+                    {{shirtSize.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+              <div class="shirtSize">
+                <p style="padding-top: 12px">
+                  Để ban tổ chức có thể chuẩn bị được chu đáo số lượng áo cho các em học sinh
+                  xin quý phụ huynh chọn mẫu áo cho các em trước khi cho các em đi nhập học.
+                </p>
+                <p>Ban tổ chức xin chân thành cảm ơn!</p>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-card-title>Thông tin người giới thiệu</mat-card-title>
+            </mat-panel-title>
+            <mat-panel-description>{{panelOpenState ? 'Nếu không có hãy đóng' : 'Nếu có hãy mở'}}</mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-card-content>
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Tên người giới thiệu</mat-label>
+                  <input matInput placeholder="VD: Trần Văn B" [(ngModel)]="student.relativeName">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Số điện thoại</mat-label>
+                  <input matInput placeholder="VD: 0972888888" [(ngModel)]="student.relativePhone">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Người giới thiệu có đang sinh hoạt ở trong chúng thanh niên</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let introducePersonIsYouth of introducePersonIsYouths"
+                                [value]="introducePersonIsYouth.code">
+                      {{introducePersonIsYouth.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <mat-form-field class="control-full-width" appearance="fill">
+                  <mat-label>Tên tổ người giới thiệu đang sinh hoạt</mat-label>
+                  <input matInput placeholder="VD: Tổ Tây Hồ, Hà Nội" [(ngModel)]="student.relativeName">
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <div class="float-end position-right-bottom-end mt-3">
+        <button class="btn-margin8880" mat-raised-button mat-button matStepperPrevious>Trở lại</button>
+        <button class="btn-margin8880" mat-raised-button color="warn" (click)="stepper.reset()">Nhập lại</button>
+        <button class="btn-margin8880" mat-raised-button color="primary" (click)="createdStudent()">Hoàn thành</button>
+        <a class="btn-margin8880" mat-stroked-button mat-button routerLink="/student-list">Thoát</a>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

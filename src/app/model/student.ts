@@ -19,7 +19,9 @@ export interface Student {
 
   relativePhone?: string; // số điện thoại người thân
 
-  appartmentNumber?: string; // số nhà
+  relationShip?: string; // quan hệ với học sinh
+
+  apartmentNumber?: string; // số nhà
 
   ward?: string; // phường/xã
 
@@ -37,7 +39,9 @@ export interface Student {
 
   conduct?: string; // hạnh kiểm
 
-  academicAability?: string; // học lực
+  academicAbility?: string; // học lực
+
+  shirtSize?: string; // cỡ áo
 
   summerCourseId?: number;
 

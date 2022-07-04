@@ -1,0 +1,53 @@
+.dropdown-toggle::after {
+  content: none;
+}
+.sidebar {
+  min-height: 100vh;
+  height: 100%;
+  background-color: #486dda;
+  color: #fff;
+}
+.sidebar-general {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  height: 56px;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+.sidebar-general:hover {
+  color: #ccc;
+}
+.url-logo {
+  text-align: center;
+  height: 70px;
+  padding: 16px;
+}
+.logo-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+.sidebar-dark {
+  color: rgba(255,255,255,.4);
+  padding: 0 1rem;
+  font-weight: 800;
+  font-size: .65rem;
+}
+.dashboard-link {
+  font-weight: 300;
+  font-size: 14px;
+}
+.drop-link {
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  text-align: left;
+  padding: 8px 8px 8px 8px;
+}
+.btn-hover-light:hover {
+  background-color: rgba(191, 190, 190, 0.5);
+}
+
+
+

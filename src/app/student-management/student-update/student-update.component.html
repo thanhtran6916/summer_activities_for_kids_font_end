@@ -1,0 +1,70 @@
+<div class="container">
+  <form (ngSubmit)="updateStudent()">
+    <div class="row mb-4">
+      <div class="col-6">
+        <label for="student-name" class="form-label">Họ và tên</label>
+        <input type="text" class="form-control" id="student-name" name="name" [(ngModel)]="student.name">
+      </div>
+      <div class="col-6">
+        <label for="dharma-name" class="form-label">Pháp danh</label>
+        <input type="text" class="form-control" id="dharma-name" name="dharmaName" [(ngModel)]="student.dharmaName">
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-6">
+        <label for="birth-year" class="form-label">Năm sinh</label>
+        <input type="text" class="form-control" id="birth-year" name="yearBirth" [(ngModel)]="student.yearBirth">
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <label for="gender" class="form-label">Giới tính</label>
+            <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="student.gender">
+          </div>
+          <div class="col-6">
+            <label for="register-for-refuge" class="form-label">Đăng ký quy y</label>
+            <input class="form-check-input form-control btn-lg" type="checkbox" id="register-for-refuge"
+                   name="registerForRefuge" [(ngModel)]="student.registerForRefuge">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <label for="weight" class="form-label">Cân nặng</label>
+            <input type="text" class="form-control" id="weight" name="weight" [(ngModel)]="student.weight">
+          </div>
+          <div class="col-6">
+            <label for="height" class="form-label">Chiều cao</label>
+            <input type="text" class="form-control" id="height" name="height" [(ngModel)]="student.height">
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <label for="relative-phone" class="form-label">Số điện thoại người thân</label>
+        <input type="text" class="form-control" id="relative-phone" name="relativePhone" [(ngModel)]="student.relativePhone">
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-12">
+        <label for="address" class="form-label">Địa chỉ nơi ở hiện nay</label>
+        <input type="text" class="form-control" id="address" name="address" [(ngModel)]="student.address">
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-12">
+        <p class="form-label">Trạng thái hồ sơ</p>
+        <input type="text" class="form-control" name="status" [(ngModel)]="student.status">
+      </div>
+    </div>
+    <div class="float-end mx-4 mt-5">
+      <button class="btn btn-success" type="submit">Cập nhập</button>
+      <a class="btn btn-secondary mx-2" type="button" routerLink="/student-list">Trở lại</a>
+    </div>
+  </form>
+</div>

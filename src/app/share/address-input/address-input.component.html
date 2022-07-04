@@ -1,0 +1,43 @@
+<div class="address-form row m-0 p-0">
+  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Tỉnh thành phố</mat-label>
+      <input matInput placeholder="VD: Hà Nội" [formControl]="provinceControl" [matAutocomplete]="auto1">
+      <mat-autocomplete #auto1="matAutocomplete">
+        <mat-option *ngFor="let province of filteredProvince | async" [value]="province.name" (click)="findDistrict(province)">
+          {{province.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Quận huyện</mat-label>
+      <input matInput placeholder="VD: Hoàn Kiếm" [formControl]="districtControl" [matAutocomplete]="auto2">
+      <mat-autocomplete #auto2="matAutocomplete">
+        <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.name" (click)="findWard(district)">
+          {{district.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Xã phường thị trấn</mat-label>
+      <input matInput placeholder="Hàng Mã" [formControl]="wardControl" [matAutocomplete]="auto3">
+      <mat-autocomplete #auto3="matAutocomplete">
+        <mat-option *ngFor="let ward of filteredWard | async" [value]="ward.name">
+          {{ward.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Số nhà, đường, thôn xóm</mat-label>
+      <input matInput placeholder="số 2, đường Tôn Đức Thắng" [formControl]="wardControl" [matAutocomplete]="auto3">
+    </mat-form-field>
+  </div>
+</div>
